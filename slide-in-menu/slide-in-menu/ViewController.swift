@@ -16,6 +16,28 @@ class ViewController: UIViewController {
     }
     
     func slideUpMenu() {
+//        UIApplication.shared.keyWindow
+//        prove the keywindow behavior in iPadOs that support multiple scene
+        
+        if let keyWindow = UIApplication.shared.windows.filter({$0.isKeyWindow}).first {
+            
+            blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
+            keyWindow.addSubview(blackView)
+            blackView.frame = keyWindow.frame
+            blackView.alpha = 0
+            UIView.animate(withDuration: 0.5) {
+                self.blackView.alpha = 1
+            }
+            blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
+        }
+        
     }
+    
+    @objc func handleDismiss() {
+        UIView.animate(withDuration: 0.5) {
+            self.blackView.alpha = 0
+        }
+    }
+    
 }
 
