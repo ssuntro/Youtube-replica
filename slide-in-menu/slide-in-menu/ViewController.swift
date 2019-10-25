@@ -10,11 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    let blackView = UIView()
+    @IBAction func buttonDidTap(_ sender: Any) {
+        slideUpMenu()
     }
-
-
+    
+    func slideUpMenu() {
+    }
 }
 
